@@ -102,22 +102,32 @@ p{
 
 /* -------------------- Mobile -------------------- */
 
-@media (max-width: 768px){
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
 
     h1{
+        height: auto;
+        line-height: normal;
+        padding: 15px;
         font-size: 1.5rem;
-        height: 4rem;
-        line-height: 4rem;
     }
 
     .choices{
-        gap: 1.5rem;
+        gap: 20px;
         margin-top: 2rem;
+        flex-wrap: wrap;
     }
 
     .choice{
-        width: 150px;
-        height: 150px;
+        width: 140px;
+        height: 140px;
+    }
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 
     .score-board{
@@ -125,12 +135,9 @@ p{
         margin-top: 2rem;
     }
 
-    .score-board p:first-child{
-        font-size: 2.2rem;
-    }
-
-    .score-board p:last-child{
-        font-size: 1rem;
+    #userscore,
+    #computerscore{
+        font-size: 2rem;
     }
 
     .play{
@@ -138,34 +145,44 @@ p{
         padding: 0 15px;
     }
 
-    .play p{
+    #msg{
+        width: 100%;
+        padding: 12px;
         font-size: 1rem;
-        padding: 10px 20px;
+        text-align: center;
+        border-radius: 10px;
     }
 }
 
-/* -------------------- Small Mobile -------------------- */
 
-@media (max-width: 480px){
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
 
     h1{
         font-size: 1.2rem;
+        padding: 12px;
+    }
+
+    .choices{
+        gap: 15px;
     }
 
     .choice{
-        width: 110px;
-        height: 110px;
+        width: 100px;
+        height: 100px;
     }
 
     .score-board{
         gap: 1.5rem;
     }
 
-    .score-board p:first-child{
+    #userscore,
+    #computerscore{
         font-size: 1.8rem;
     }
 
-    .play p{
+    #msg{
         font-size: 0.9rem;
     }
 }
