@@ -1,55 +1,23 @@
-let userscore = 0;
-let computerscore = 0;
+function playGame(user, computer) {
 
-let userScorePara = document.querySelector("#user-score");
-let computerScorePara = document.querySelector("#computer-score");
-let msg = document.getElementById("msg");
+    if(user === computer){
+        msg.innerText = "Match Draw!";
+        return;
+    }
 
-const choices = document.querySelectorAll(".choice");
+    let userWin =
+        (user === "stone" && computer === "scissors") ||
+        (user === "paper" && computer === "stone") ||
+        (user === "scissors" && computer === "paper");
 
-choices.forEach((choice) => {
-    choice.addEventListener("click", function () {
+    if(userWin){
+        userscore++;
+        userScorePara.innerText = userscore;
+        msg.innerText = "You Win 🎉";
+    }else{
+        computerscore++;
+        computerScorePara.innerText = computerscore;
+        msg.innerText = "Computer Wins 😔";
+    }
 
-        let user = choice.id;
-
-        let arr = ["stone", "paper", "scissors"];
-        let computer = arr[Math.floor(Math.random() * 3)];
-
-        if (user === computer) {
-            console.log("draw");
-            msg.innerText = "Match Draw!";
-        }
-
-        else if (user === "stone" && computer === "scissors") {
-            userscore++;
-            userScorePara.innerText = userscore;
-            msg.innerText = "You Win!";
-            console.log("userwin");
-        }
-
-        else if (user === "paper" && computer === "stone") {
-            userscore++;
-            userScorePara.innerText = userscore;
-            msg.innerText = "You Win!";
-            console.log("userwin");
-        }
-
-        else if (user === "scissors" && computer === "paper") {
-            userscore++;
-            userScorePara.innerText = userscore;
-            msg.innerText = "You Win!";
-            console.log("userwin");
-        }
-
-        else {
-            computerscore++;
-            computerScorePara.innerText = computerscore;
-            msg.innerText = "Computer Wins!";
-            console.log("computerwin");
-        }
-
-        console.log("User:", user);
-        console.log("Computer:", computer);
-
-    });
-});
+}
